@@ -54,15 +54,14 @@ defineProps<{
                     <InputError :message="errors.email" />
                 </div> -->
                 <div class="grid gap-2">
-                    <Label for="username">ユーザー名</Label>
+                    <Label for="login">ユーザー名</Label>
                     <Input
-                        id="username"
+                        id="login"
                         type="text"
-                        name="username"
+                        name="login"
                         required
                         autofocus
                         :tabindex="1"
-                        autocomplete="email"
                         placeholder="ユーザー名"
                     />
                     <!-- <InputError :message="errors.email" /> -->
