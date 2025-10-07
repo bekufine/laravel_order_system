@@ -11,10 +11,10 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard } from '@/routes';
+import { dashboard, order } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { BookOpen, Folder, LayoutGrid, LayoutList, ScrollText} from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -23,7 +23,18 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Make order',
+        href: order(),
+        icon: LayoutList,
+    },
+    {
+        title: 'History',
+        href: dashboard(),
+        icon: ScrollText,
+    },
 ];
+
 
 const footerNavItems: NavItem[] = [
     {
