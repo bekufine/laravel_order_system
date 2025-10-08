@@ -2,6 +2,7 @@
 import { reactive } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 
+
 // локальное состояние формы
 const form = useForm({
   title: '',
@@ -11,7 +12,7 @@ const form = useForm({
 
 // отправка
 function submit() {
-  form.post(route('orders.store'))
+  form.post('/orders')
 }
 </script>
 
