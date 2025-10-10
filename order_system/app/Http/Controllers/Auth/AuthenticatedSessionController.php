@@ -32,6 +32,11 @@ class AuthenticatedSessionController extends Controller
     {
         $user = $request->validateCredentials();
 
+        session([
+            'hotel_id' => $user->hotel_id,       // или $user->hotel->id
+            'dep_id' => $user->dep_id,  // или связь $user->department->id
+        ]);
+
         if (Features::enabled(Features::twoFactorAuthentication()) && $user->hasEnabledTwoFactorAuthentication()) {
             $request->session()->put([
                 'login.id' => $user->getKey(),

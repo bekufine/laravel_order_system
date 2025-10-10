@@ -21,11 +21,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    })->name('dashboard');
     
     Route::get('/order', function(){
         return Inertia::render('Order');
-    })->middleware(['auth', 'verified'])->name('order');
+    })->name('order');
 });
 
 require __DIR__.'/settings.php';
