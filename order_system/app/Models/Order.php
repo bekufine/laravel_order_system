@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Order extends Model
 {
     use HasFactory;
+    protected $table = 'orders';
 
     // указываем, какие поля можно массово заполнять
     protected $fillable = [
+        'hotel_id',
+        'dep_id',
+        'coor_id',
         'event_date',
         'work_start_time',
         'work_end_time',
@@ -21,6 +25,6 @@ class Orders extends Model
         'guests_number',
         'duty_content',
         'position',
-        'comments',
+        'comments'
     ];
 }

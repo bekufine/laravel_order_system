@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, usePage } from '@inertiajs/vue3'
 
 
 
 
+const page = usePage()
 // локальное состояние формы
 const form = useForm({
   event_date: '',
@@ -18,8 +19,9 @@ const form = useForm({
   duty_content:'',
   position:'',
   comments:'',
-  // hotel_id: session('hotel_id'),
-  // dep_id: session('dep_id')
+  hotel_id: page.props.auth.user.hotel_id,
+  dep_id: page.props.auth.user.dep_id,
+  coor_id: page.props.auth.user.coor_id,
 })
 
 // отправка
@@ -48,7 +50,7 @@ function submit() {
 
     <div>
       <label class="block font-medium text-black">Workers number</label>
-      <input v-model="form.venue_name" type="number" class="border border-white-500 bg-black text-white rounded px-2 py-1" />
+      <input v-model="form.workers_number" type="number" class="border border-white-500 bg-black text-white rounded px-2 py-1" />
     </div>
 
     <div>
@@ -58,7 +60,7 @@ function submit() {
 
     <div>
       <label class="block font-medium text-black">Event end time</label>
-      <input v-model="form.event_end_time" type="number" class="border border-white-500 bg-black text-white rounded px-2 py-1" />
+      <input v-model="form.event_end_time" type="text" class="border border-white-500 bg-black text-white rounded px-2 py-1" />
     </div>
 
     <div>
@@ -69,6 +71,11 @@ function submit() {
     <div>
       <label class="block font-medium text-black">Duty content</label>
       <input v-model="form.duty_content" type="text"  class="border border-white-500 bg-black text-white rounded px-2 py-1" />
+    </div>
+
+    <div>
+      <label class="block font-medium text-black">Venue name</label>
+      <input v-model="form.venue_name" type="text" class="border border-white-500 bg-black text-white rounded px-2 py-1" />
     </div>
 
     <div>
